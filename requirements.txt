@@ -1,0 +1,11 @@
+requests
+pandas
+python-dotenv
+supabase
+urllib.parse
+webbrowser
+threading
+http.server
+datetime
+logging
+os
