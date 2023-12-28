@@ -1,7 +1,6 @@
-name: Run Spotify data automation
+name: Run Spotify Data Script
 
 on:
-  workflow_dispatch: # Allows manual triggering of the workflow
   schedule:
     - cron: '0 0 * * *' # This will run daily at midnight UTC
 
@@ -10,12 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo Content
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Updated to the latest version
 
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3 # Updated to the latest version
         with:
-          python-version: '3.10.10'
+          python-version: '3.10' # Using Python 3.10
 
       - name: Install Dependencies
         run: |
@@ -23,7 +22,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Script
-        run: python Unlimited_Spotify_Wrapped.py
+        run: python Unlimited_Spotify_Wrapped.py # Updated path to the script
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
