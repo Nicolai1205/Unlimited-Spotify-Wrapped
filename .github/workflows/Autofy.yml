@@ -22,7 +22,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run Script
-        run: python path/to/your/script.py
+        run: python Unlimited_Spotify_Wrapped.py
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
