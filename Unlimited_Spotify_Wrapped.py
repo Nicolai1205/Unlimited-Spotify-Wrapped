@@ -10,14 +10,15 @@ import webbrowser
 from urllib.parse import urlencode, urlparse, parse_qs
 from supabase import create_client, Client
 
-# Setup logging
+# Initialize logging
 logging.basicConfig(level=logging.INFO)
 
-# Spotify Authenticator Class
+# Define the SpotifyAuthenticator class
 class SpotifyAuthenticator:
+    # Initialization method
     def __init__(self):
-        self.client_id = os.environ.get('CLIENT_ID')
-        self.client_secret = os.environ.get('CLIENT_SECRET')
+        self.client_id = os.getenv('CLIENT_ID')
+        self.client_secret = os.getenv('CLIENT_SECRET')
         self.redirect_uri = 'http://localhost:3000'
         self.auth_url = 'https://accounts.spotify.com/authorize'
         self.token_url = 'https://accounts.spotify.com/api/token'
@@ -141,25 +142,28 @@ def insert_df_to_supabase(client, df, table_name):
         success = False
     return success
 
-# Main orchestration function
+# Main function
 def main():
     try:
-        access_token = authenticate_and_get_token()
+        # Authenticate with Spotify
+        authenticator = SpotifyAuthenticator()
+        access_token = authenticator.authenticate()
         if not access_token:
             logging.error("Failed to authenticate with Spotify")
             return
 
+        # Retrieve and process data
         current_date = datetime.now().date()
-        df_artists, df_tracks, df_genres, df_playlists = prepare_data(access_token, current_date)
+        data_artists = get_top_items_with_rank(access_token, 'artists', 'short_term')
+        data_tracks = get_top_items_with_rank(access_token, 'tracks', 'short_term')
+        genre_data = get_genre_counts_with_rank(access_token, 'short_term')
+        df_artists = create_dataframe_with_rank(data_artists, 'Date', current_date, 'Artist')
+        df_tracks = create_dataframe_with_rank(data_tracks, 'Date', current_date, 'Track')
+        df_genres = create_genre_dataframe(genre_data, current_date)
 
+        # Initialize Supabase client and upload data
         client = init_supabase_client()
-        tables = {
-            'artists': df_artists,
-            'tracks': df_tracks,
-            'genres': df_genres,
-            'playlists': df_playlists
-        }
-
+        tables = {'artists': df_artists, 'tracks': df_tracks, 'genres': df_genres}
         for table_name, df in tables.items():
             if not insert_df_to_supabase(client, df, table_name):
                 logging.error(f"Failed to insert data into {table_name}")
