@@ -6,7 +6,7 @@ on:
   workflow_dispatch: # Allows manual trigger
 
 permissions:
-  write-all: true
+  contents: write
 
 jobs:
   run-script:
