@@ -15,16 +15,21 @@ from supabase import create_client, Client
 logging.basicConfig(level=logging.INFO)
 
 # Define the SpotifyAuthenticator class
-class SpotifyAuthenticator:
-    # Initialization method
-    def __init__(self, client_id, client_secret, redirect_uri):
-        self.client_id = os.getenv('CLIENT_ID')
-        self.client_secret = os.getenv('CLIENT_SECRET')
-        self.redirect_uri = 'http://localhost:3000'
-        self.auth_url = 'https://accounts.spotify.com/authorize'
-        self.token_url = 'https://accounts.spotify.com/api/token'
-        self.server = None
-        self.code = None
+def get_access_token_from_refresh_token(refresh_token):
+    token_url = "https://accounts.spotify.com/api/token"
+    data = {
+        'grant_type': 'refresh_token',
+        'refresh_token': refresh_token
+    }
+    headers = {
+        'Authorization': 'Basic ' + os.getenv('SPOTIFY_BASE64_CREDENTIALS')
+    }
+
+    response = requests.post(token_url, data=data, headers=headers)
+    if response.status_code == 200:
+        return response.json()['access_token']
+    else:
+        raise Exception(f"Failed to refresh token: {response.json()}")
 
     def authenticate(self):
         self.start_server()
@@ -189,11 +194,9 @@ def insert_df_to_supabase(client: Client, df: pd.DataFrame, table_name: str) -> 
     return success
 
 def main():    
-    client_id = os.getenv('CLIENT_ID')
-    client_secret = os.getenv('CLIENT_SECRET')
-    redirect_uri = 'http://localhost:3000'  # or fetch from env if it's variable
-    # Create an instance of SpotifyAuthenticator
-    authenticator = SpotifyAuthenticator(client_id, client_secret, redirect_uri)
+    # Get Spotify access token using refresh token
+    refresh_token = os.getenv('REFRESH_TOKEN')
+    access_token = get_access_token_from_refresh_token(refresh_token)
     
     # Authenticate and get the access token
     access_token = authenticator.authenticate()
