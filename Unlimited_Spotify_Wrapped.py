@@ -21,11 +21,14 @@ def get_access_token_from_refresh_token(refresh_token):
         'grant_type': 'refresh_token',
         'refresh_token': refresh_token
     }
-    headers = {
-        'Authorization': 'Basic ' + os.getenv('SPOTIFY_BASE64_CREDENTIALS')
-    }
+    
+    client_id = os.environ.get('CLIENT_ID')
+    client_secret = os.environ.get('CLIENT_SECRET')
 
-    response = requests.post(token_url, data=data, headers=headers)
+    response = requests.post(token_url, 
+                             data=data, 
+                             auth=(client_id, client_secret))
+    
     if response.status_code == 200:
         return response.json()['access_token']
     else:
