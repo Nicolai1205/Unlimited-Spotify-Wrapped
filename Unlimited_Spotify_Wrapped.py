@@ -17,7 +17,7 @@ logging.basicConfig(level=logging.INFO)
 # Define the SpotifyAuthenticator class
 class SpotifyAuthenticator:
     # Initialization method
-    def __init__(self):
+    def __init__(self, client_id, client_secret, redirect_uri):
         self.client_id = os.getenv('CLIENT_ID')
         self.client_secret = os.getenv('CLIENT_SECRET')
         self.redirect_uri = 'http://localhost:3000'
@@ -197,7 +197,7 @@ def main():
     #access_token = authenticator.authenticate()
 
     # Create an instance of SpotifyAuthenticator
-    authenticator = SpotifyAuthenticator()
+    authenticator = SpotifyAuthenticator(client_id, client_secret, redirect_uri)
     
     # Authenticate and get the access token
     access_token = authenticator.authenticate()
