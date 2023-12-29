@@ -140,9 +140,6 @@ def main():
     # Get Spotify access token using refresh token
     refresh_token = os.getenv('REFRESH_TOKEN')
     access_token = get_access_token_from_refresh_token(refresh_token)
-    
-    # Authenticate and get the access token
-    access_token = authenticator.authenticate()
 
     #current_date = datetime.now().date()
     current_date = (datetime.now() - timedelta(days=1)).date()
