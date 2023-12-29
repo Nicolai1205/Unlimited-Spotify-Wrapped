@@ -141,8 +141,8 @@ def main():
     refresh_token = os.getenv('REFRESH_TOKEN')
     access_token = get_access_token_from_refresh_token(refresh_token)
 
-    #current_date = datetime.now().date()
-    current_date = (datetime.now() - timedelta(days=1)).date()
+    current_date = datetime.now().date()
+    #current_date = (datetime.now() - timedelta(days=1)).date()
     data_artists = {time_range: get_top_items_with_rank(access_token, 'artists', time_range) for time_range in ['short_term', 'medium_term', 'long_term']}
     data_tracks = {time_range: get_top_items_with_rank(access_token, 'tracks', time_range) for time_range in ['short_term', 'medium_term', 'long_term']}
     genre_data = {time_range: get_genre_counts_with_rank(access_token, time_range) for time_range in ['short_term', 'medium_term', 'long_term']}
