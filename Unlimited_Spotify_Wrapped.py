@@ -14,7 +14,7 @@ from supabase import create_client, Client
 # Initialize logging
 logging.basicConfig(level=logging.INFO)
 
-# Define the SpotifyAuthenticator class
+# Function to get an access token using the refresh token
 def get_access_token_from_refresh_token(refresh_token):
     token_url = "https://accounts.spotify.com/api/token"
     data = {
@@ -25,72 +25,12 @@ def get_access_token_from_refresh_token(refresh_token):
     client_id = os.environ.get('CLIENT_ID')
     client_secret = os.environ.get('CLIENT_SECRET')
 
-    response = requests.post(token_url, 
-                             data=data, 
-                             auth=(client_id, client_secret))
+    response = requests.post(token_url, data=data, auth=(client_id, client_secret))
     
     if response.status_code == 200:
         return response.json()['access_token']
     else:
         raise Exception(f"Failed to refresh token: {response.json()}")
-
-    def authenticate(self):
-        self.start_server()
-        self.request_authorization()
-        threading.Thread(target=self.server.serve_forever, daemon=True).start()
-        while self.code is None:
-            pass  # Wait for the code to be set by the server
-        return self.exchange_code_for_token()
-
-    def start_server(self):
-        server_address = ('', 3000)
-        self.server = HTTPServer(server_address, RequestHandler)
-        self.server.authenticator = self
-
-    def request_authorization(self):
-        params = {
-            'response_type': 'code',
-            'client_id': self.client_id,
-            'scope': 'user-top-read',
-            'redirect_uri': self.redirect_uri
-        }
-        url = f"{self.auth_url}?{urlencode(params)}"
-        webbrowser.open(url)
-
-    def exchange_code_for_token(self):
-        data = {
-            'grant_type': 'authorization_code',
-            'code': self.code,
-            'redirect_uri': self.redirect_uri,
-            'client_id': self.client_id,
-            'client_secret': self.client_secret
-        }
-        response = requests.post(self.token_url, data=data)
-        return response.json().get('access_token')
-
-class RequestHandler(BaseHTTPRequestHandler):
-    def do_GET(self):
-        url_path = urlparse(self.path)
-        query_parameters = parse_qs(url_path.query)
-        code = query_parameters.get('code', [None])[0]
-
-        if code:
-            self.server.authenticator.code = code.split("Code: ")[-1]
-            self.send_response(200)
-            self.send_header('Content-type', 'text/html')
-            self.end_headers()
-            self.wfile.write("Authorization successful. Please close this tab.".encode())
-            threading.Thread(target=self.server.shutdown, daemon=True).start()
-        else:
-            self.send_response(404)
-            self.end_headers()
-
-def authenticate_and_get_token():
-    self.client_id = os.getenv('CLIENT_ID')
-    self.client_secret = os.getenv('CLIENT_SECRET')
-    redirect_uri = 'http://localhost:3000'
-    authenticator = SpotifyAuthenticator(client_id, client_secret, redirect_uri)
-    return authenticator.authenticate()
 
 # Data retrieval and processing functions
 SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1"
