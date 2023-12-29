@@ -189,13 +189,9 @@ def insert_df_to_supabase(client: Client, df: pd.DataFrame, table_name: str) -> 
     return success
 
 def main():    
-    #Get authenticator started once more
-    #client_id = os.getenv('CLIENT_ID')
-    #client_secret = os.getenv('CLIENT_SECRET')
-    #redirect_uri = 'http://localhost:3000'
-    #authenticator = SpotifyAuthenticator(client_id, client_secret, redirect_uri)
-    #access_token = authenticator.authenticate()
-
+    client_id = os.getenv('CLIENT_ID')
+    client_secret = os.getenv('CLIENT_SECRET')
+    redirect_uri = 'http://localhost:3000'  # or fetch from env if it's variable
     # Create an instance of SpotifyAuthenticator
     authenticator = SpotifyAuthenticator(client_id, client_secret, redirect_uri)
     
