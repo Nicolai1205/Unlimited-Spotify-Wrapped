@@ -190,9 +190,9 @@ def insert_df_to_supabase(client: Client, df: pd.DataFrame, table_name: str) -> 
 
 def main():    
     #Get authenticator started once more
-    self.client_id = os.getenv('CLIENT_ID')
-    self.client_secret = os.getenv('CLIENT_SECRET')
-    self.redirect_uri = 'http://localhost:3000'
+    client_id = os.getenv('CLIENT_ID')
+    client_secret = os.getenv('CLIENT_SECRET')
+    redirect_uri = 'http://localhost:3000'
     authenticator = SpotifyAuthenticator(client_id, client_secret, redirect_uri)
     access_token = authenticator.authenticate()
 
@@ -231,4 +231,5 @@ def main():
 
 # Main script execution
 if __name__ == "__main__":
-    df_artists, df_tracks, df_genres, df_playlists = main()
+    #df_artists, df_tracks, df_genres, df_playlists = main()
+    main()
