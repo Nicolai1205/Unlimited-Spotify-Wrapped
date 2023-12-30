@@ -2,7 +2,7 @@ name: Run Spotify Data Script
 
 on:
   schedule:
-    - cron: '23 0 * * *' # Runs daily at midnight CET
+    - cron: '22 0 * * *' # Runs daily at midnight CET
   workflow_dispatch: # Allows manual trigger
 
 permissions:
