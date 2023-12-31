@@ -27,10 +27,10 @@ This repository was my first look at the possibilities the Spotify API and its u
 <p>Guidelines for contributing to the project, including coding standards, pull request process, etc.</p>
 
 <h2>License</h2>
-<p>Details about the project's licensing and usage rights.</p>
+<p>There is no license associated with the following project. Please free free to use it as wanted.</p>
 
 <h2>Contact</h2>
-<p>Information on how to reach the maintainer or the community for support and queries.</p>
+<p>Feel free to contact me on any of the social platforms linked on my profile if you have any questions regarding this project.</p>
 
 <h2>Acknowledgements</h2>
 <p>Shoutouts to contributors, helpful tools, or resources used in the project.</p>
