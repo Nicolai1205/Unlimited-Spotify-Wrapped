@@ -1,13 +1,8 @@
 # Import necessary libraries
 import logging
 import requests
-import time
 from datetime import datetime, date, timedelta
 import pandas as pd
-import webbrowser
-from urllib.parse import urlencode, quote, urlparse, parse_qs
-import threading
-from http.server import HTTPServer, BaseHTTPRequestHandler
 import os
 from supabase import create_client, Client
 
