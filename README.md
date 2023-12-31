@@ -21,10 +21,8 @@ This repository was my first look at the possibilities the Spotify API and its u
 <p>Instructions on setting up the project, including environment setup, dependencies, and initial configuration.</p>
 
 <h2>Usage</h2>
-<p>Step-by-step guide on how to use the application, including examples and screenshots.</p>
+<p>Step-by-step guide on how to use the application, including examples and screenshots (TO BE COMPLETED).</p>
 
-<h2>Contributing</h2>
-<p>Guidelines for contributing to the project, including coding standards, pull request process, etc.</p>
 
 <h2>License</h2>
 <p>There is no license associated with the following project. Please free free to use it as wanted.</p>
@@ -32,6 +30,7 @@ This repository was my first look at the possibilities the Spotify API and its u
 <h2>Contact</h2>
 <p>Feel free to contact me on any of the social platforms linked on my profile if you have any questions regarding this project.</p>
 
-<h2>Acknowledgements</h2>
-<p>Shoutouts to contributors, helpful tools, or resources used in the project.</p>
+<h2>Example use case using plotly</h2>
+<img width="968" alt="image" src="https://github.com/Nicolai1205/Unlimited_Spotify_Wrapped/assets/100568658/a0672fd3-ac5a-4d64-b59a-5618ce351bb4">
+
 
