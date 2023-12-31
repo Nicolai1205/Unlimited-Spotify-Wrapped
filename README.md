@@ -12,7 +12,7 @@ This repository was my first look at the possibilities the Spotify API and its u
 
 <h2>Features</h2>
 <ul>
-    <li>Detailed analysis of user's top tracks, artists, and genres.</li>
+    <li>Insight into user's top tracks, artists, genres and basic playlist information.</li>
     <li>Automated daily data collection and processing.</li>
     <li>Integration with Supabase for data storage and management.</li>
 </ul>
