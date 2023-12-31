@@ -8,7 +8,7 @@ This repository was my first look at the possibilities the Spotify API and its u
 
 <h1>Unlimited Spotify Wrapped</h1>
 
-<p>This Python-based application is designed to fetch and analyze Spotify user data, offering a more extensive version of the popular Spotify Wrapped feature. It leverages Spotify's Web API to gather insights into user preferences and habits.</p>
+<p>I've created this Python application out of my passion for music and data. It's a personal take on Spotify's Wrapped feature, delving deeper into your musical journey. By tapping into Spotify's Web API, my app uncovers unique insights about your favorite tunes and artists, reflecting your musical tastes and listening habits.</p>
 
 <h2>Features</h2>
 <ul>
