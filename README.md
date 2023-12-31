@@ -1,5 +1,4 @@
-Script that pulls data from spotify and uploads it to a premade Supabase postgres database
-
+README TO BE COMPLETED
 
 ## ✨ My very first inspiration
 
