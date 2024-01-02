@@ -15,6 +15,7 @@ This repository was my first look at the possibilities the Spotify API and its u
     <li>Insight into user's top tracks, artists, genres and basic playlist information.</li>
     <li>Automated daily data collection and processing.</li>
     <li>Integration with Supabase for data storage and management.</li>
+    <li>Coded without the use of the Spotipy Python package.</li>
 </ul>
 
 <h2>Setup and Installation</h2>
