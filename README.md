@@ -24,10 +24,6 @@ This repository was my first look at the possibilities the Spotify API and its u
 <h2>Usage</h2>
 <p>Step-by-step guide on how to use the application, including examples and screenshots (TO BE COMPLETED).</p>
 
-
-<h2>License</h2>
-<p>There is no license associated with the following project. Please free free to use it as wanted.</p>
-
 <h2>Contact</h2>
 <p>Feel free to contact me on any of the social platforms linked on my profile if you have any questions regarding this project.</p>
 
