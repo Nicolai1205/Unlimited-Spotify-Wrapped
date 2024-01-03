@@ -163,6 +163,39 @@ CREATE TABLE playlists (
 
 <br>
 
+<details>
+<summary><strong>Setting Up Environmental Secrets in GitHub</strong></summary>
+<p>
+
+This guide details the process of setting up environmental secrets for a GitHub repository, specifically for a project that utilizes Supabase and Spotify.
+
+<br>
+
+<strong>Environmental Secrets Overview</strong>
+<ul>
+<li><code>SUPABASE_KEY</code>: Your Supabase key, used for authenticating requests to your Supabase project.</li>
+<li><code>SUPABASE_URL</code>: The URL of your Supabase project, required to connect to your Supabase database.</li>
+<li><code>CLIENT_ID</code>: Your Spotify application's Client ID, used for Spotify API authentication.</li>
+<li><code>CLIENT_SECRET</code>: Your Spotify application's Client Secret, used alongside the Client ID for Spotify API authentication.</li>
+<li><code>REFRESH_TOKEN</code>: A Spotify token that allows your application to refresh the access token when it expires.</li>
+</ul>
+
+<br>
+
+<strong>Step 1: Adding Secrets to GitHub</strong>
+<ul>
+<li>Navigate to your GitHub repository.</li>
+<li>Click on 'Settings' and then choose 'Secrets and variables' from the left sidebar.</li>
+<li>Select 'New repository secret' to add each of the environmental secrets.</li>
+<li>Enter the name of the secret (e.g., 'SUPABASE_KEY') and its corresponding value.</li>
+<li>Repeat for each secret: 'SUPABASE_URL', 'CLIENT_ID', 'CLIENT_SECRET', and 'REFRESH_TOKEN'.</li>
+</ul>
+
+</p>
+</details>
+
+<br>
+
 <h2>Important to know</h2>
 <p>Step-by-step guide on how to use the application, including examples and screenshots (TO BE COMPLETED).</p>
 <ul>
