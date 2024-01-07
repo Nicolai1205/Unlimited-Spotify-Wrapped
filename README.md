@@ -3,7 +3,7 @@
 
 ## Inspiration
 
-This code was inspired by [@izayl spotify-box](https://github.com/izayl/spotify-box).
+This project was inspired by [@izayl spotify-box](https://github.com/izayl/spotify-box).
 This repository was my first look at the possibilities the Spotify API and its usage.
 
 <h1>Unlimited Spotify Wrapped</h1>
