@@ -26,6 +26,7 @@ This repository was my first look at the possibilities the Spotify API and its u
     <li>Automated daily data collection and processing.</li>
     <li>Integration with Supabase for data storage and management.</li>
     <li>Coded without the use of the Spotipy Python package.</li>
+    <li>Simple dashboard with linecharts to track changes in music preferences. Free hosting & creation on trevor.io</li>
 </ul>
 
 <br>
