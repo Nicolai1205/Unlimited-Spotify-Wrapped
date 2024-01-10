@@ -220,7 +220,7 @@ This guide details the process of setting up environmental secrets for a GitHub 
 <br>
 
 <h2>Next steps</h2>
-<p>Curently working on the creation of a dashboard with a daily data refresh as opposed to only running plotly in jupyter notebook as the example at the top showcases.</p>
+<p>Cleaning up the code removing redundancies</p>
 
 
 
