@@ -5,7 +5,7 @@
 <br>
 <br>
 
-[Trevor daily refresh dashboard](https://app.trevor.io/share/dashboard/9aefaaf4-eab0-41dd-84ce-33dcd7c6d4b8/load.html?pin=80edf)
+[Trevor.io daily refresh dashboard](https://app.trevor.io/share/dashboard/9aefaaf4-eab0-41dd-84ce-33dcd7c6d4b8/load.html?pin=80edf)
 <br>
 ![image](https://github.com/Nicolai1205/Unlimited-Spotify-Wrapped/assets/100568658/e13f9e0c-82d9-4d34-b890-84f1234fe21b)
 
