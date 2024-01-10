@@ -2,7 +2,7 @@ name: Run Spotify Data Script
 
 on:
   schedule:
-    - cron: '30 22 * * *' # Runs daily at 23.30 CET
+    - cron: '15 23 * * *' # Runs daily at 23.15 CET
   workflow_dispatch: # Allows manual trigger
 
 permissions:
@@ -12,7 +12,6 @@ jobs:
   run-script:
     runs-on: ubuntu-latest
     environment: prod
-
     steps:
       - uses: actions/checkout@v3
 
@@ -34,3 +33,18 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        continue-on-error: true
+
+      - name: Wait and Retry
+        if: failure()
+        uses: nick-invision/retry@v2
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: python Unlimited_Spotify_Wrapped.py
+          env:
+            CLIENT_ID: ${{ secrets.CLIENT_ID }}
+            CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+            SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+            SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+            REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
