@@ -197,7 +197,7 @@ This guide details the process of setting up environmental secrets for a GitHub 
 <br>
 
 <h2>Important to know</h2>
-<p>Step-by-step guide on how to use the application, including examples and screenshots (TO BE COMPLETED).</p>
+<p>Juicy little notes.</p>
 <ul>
 <li>If you are aiming to visualize your data in Jupyter Notebooks, you may find that only 1000 rows are returned from Supabase. This limitation can be changed under the Supabase Settings, API, at the bottom and increasing max rows.</li>
 <li>This script is currently (2024.01.03) only focused on data retrieval, manipulation and storage. Dashboarding solution is being worked on</li>
