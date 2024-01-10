@@ -171,5 +171,4 @@ def main():
 
 # Main script execution
 if __name__ == "__main__":
-    #df_artists, df_tracks, df_genres, df_playlists = main()
     main()
