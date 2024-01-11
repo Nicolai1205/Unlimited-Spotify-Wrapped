@@ -28,8 +28,6 @@ def get_access_token_from_refresh_token(refresh_token):
         raise Exception(f"Failed to refresh token: {response.json()}")
 
 # Data retrieval and processing functions
-SPOTIFY_API_BASE_URL = "https://api.spotify.com/v1"
-
 def make_spotify_api_call(url, access_token):
     headers = {"Authorization": f"Bearer {access_token}"}
     response = requests.get(url, headers=headers)
@@ -39,13 +37,13 @@ def make_spotify_api_call(url, access_token):
     return response.json()
 
 def get_top_items_with_rank(access_token, category, time_range):
-    url = f"{SPOTIFY_API_BASE_URL}/me/top/{category}?time_range={time_range}&limit=50"
+    url = f"https://api.spotify.com/v1/me/top/{category}?time_range={time_range}&limit=50"
     response = make_spotify_api_call(url, access_token)
     return [(rank + 1, item['name']) for rank, item in enumerate(response['items'])] if response else []
 
 def get_genre_counts_with_rank(access_token, time_range):
     genre_count = {}
-    url = f"{SPOTIFY_API_BASE_URL}/me/top/artists?time_range={time_range}&limit=50"
+    url = f"https://api.spotify.com/v1/me/top/artists?time_range={time_range}&limit=50"
     response = make_spotify_api_call(url, access_token)
     if response:
         artists = response['items']
@@ -56,7 +54,7 @@ def get_genre_counts_with_rank(access_token, time_range):
     return [(rank + 1, genre, count) for rank, (genre, count) in enumerate(sorted_genres)]
 
 def get_playlists_with_track_count(access_token):
-    url = f"{SPOTIFY_API_BASE_URL}/me/playlists"
+    url = f"https://api.spotify.com/v1/me/playlists"
     response = make_spotify_api_call(url, access_token)
     if response:
         playlists = response['items']
