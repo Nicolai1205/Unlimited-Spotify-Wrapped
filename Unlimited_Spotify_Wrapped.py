@@ -1,13 +1,9 @@
 # Import necessary libraries
-import logging
 import requests
 from datetime import datetime, date, timedelta
 import pandas as pd
 import os
 from supabase import create_client, Client
-
-# Initialize logging
-logging.basicConfig(level=logging.INFO)
 
 # Function to get an access token using the refresh token
 def get_access_token_from_refresh_token(refresh_token):
