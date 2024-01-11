@@ -27,24 +27,24 @@ jobs:
 
       - name: Run Spotify Data Script
         run: python Unlimited_Spotify_Wrapped.py
+        continue-on-error: true
         env:
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
-        continue-on-error: true
 
-      - name: Wait and Retry
+      - name: Wait and Retry if Failed
         if: failure()
         uses: nick-invision/retry@v2
         with:
           timeout_minutes: 10
           max_attempts: 3
           command: python Unlimited_Spotify_Wrapped.py
-          env:
-            CLIENT_ID: ${{ secrets.CLIENT_ID }}
-            CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
-            SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-            SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-            REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+        env:
+          CLIENT_ID: ${{ secrets.CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+          REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
