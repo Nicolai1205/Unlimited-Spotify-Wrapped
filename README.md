@@ -210,7 +210,7 @@ This guide details the process of setting up environmental secrets for a GitHub 
 <p>Juicy little notes.</p>
 <ul>
 <li>If you are aiming to visualize your data in Jupyter Notebooks, you may find that only 1000 rows are returned from Supabase. This limitation can be changed under the Supabase Settings, API, at the bottom and increasing max rows.</li>
-<li>This script is currently (2024.01.03) only focused on data retrieval, manipulation and storage. Dashboarding solution is being worked on</li>
+<li>There is a online dashboard to track chnages over time. I also have ajupyter notebook codebook I can share with the start for visualizing data using Plotly</li>
 </ul>
 
 <br>
