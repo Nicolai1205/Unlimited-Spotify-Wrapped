@@ -54,7 +54,7 @@ def get_playlists_with_track_count(access_token):
     response = make_spotify_api_call(url, access_token)
     if response:
         playlists = response['items']
-        return [(playlist['name'], make_spotify_api_call(f"https://api.spotify.com/v1/me/playlists/{playlist['id']}", access_token)['tracks']['total']) for playlist in playlists]
+        return [(playlist['name'], make_spotify_api_call(f"https://api.spotify.com/v1/playlists/{playlist['id']}", access_token)['tracks']['total']) for playlist in playlists]
     return []
 
 def create_dataframe_with_rank(data, date_column_name, date_value, item_column_name):
